@@ -103,7 +103,6 @@ extension ViewController: UITableViewDataSource,UITableViewDelegate{
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		let vc = CellViewController()
 		vc.job = tableContent.jobs[indexPath.row]
-		tableView.selectRow(at: indexPath, animated: true, scrollPosition: .none)
 		tableView.deselectRow(at: indexPath, animated: true)
 
 		navigationItem.largeTitleDisplayMode = .never
