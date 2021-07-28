@@ -88,6 +88,7 @@ extension ViewController: UITableViewDataSource,UITableViewDelegate{
 		let job = tableContent.jobs[indexPath.row]
 		cell.textLabel?.text = job.vacancy
 		cell.detailTextLabel?.text = job.company
+		cell.textLabel?.font = UIFont(name:"HelveticaNeue-Medium", size: 16.0)
 		cell.accessoryType = .disclosureIndicator
 		return cell
 	}
