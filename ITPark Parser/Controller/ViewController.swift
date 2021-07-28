@@ -6,6 +6,7 @@ class ViewController: UIViewController {
 
 	@IBOutlet weak var tableView: UITableView!
 	@IBOutlet weak var updateDate: UILabel!
+
 	var currentDate: Date = Date(timeIntervalSince1970: 0)
 	var tableContent: JobList = JobList(jobs: [Job]())
 	let dateFormatter = DateFormatter()
@@ -61,7 +62,8 @@ class ViewController: UIViewController {
 	func updateCurrentDate(){
 		currentDate = Date()
 		print(currentDate)
-		dateFormatter.dateFormat = "MMM d, HH:mm"
+		dateFormatter.locale = Locale(identifier: "ru_RU")
+		dateFormatter.dateFormat = "d MMMM HH:mm"
 		updateDate.text = "Обновлено " + dateFormatter.string(from: currentDate)
 	}
 
@@ -94,11 +96,18 @@ extension ViewController: UITableViewDataSource,UITableViewDelegate{
 		"\(tableContent.jobs.count) вакансий"
 	}
 
+	func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+		true
+	}
+
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		let vc = CellViewController()
 		vc.job = tableContent.jobs[indexPath.row]
+		tableView.selectRow(at: indexPath, animated: true, scrollPosition: .none)
+		tableView.deselectRow(at: indexPath, animated: true)
+
 		navigationItem.largeTitleDisplayMode = .never
 		navigationController?.pushViewController(vc, animated: true)
 	}
-	
+
 }

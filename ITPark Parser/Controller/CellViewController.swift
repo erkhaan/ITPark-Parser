@@ -1,10 +1,3 @@
-//
-//  CellViewController.swift
-//  ITPark Parser
-//
-//  Created by Erkhaan on 19.07.2021.
-//
-
 import UIKit
 
 class CellViewController: UIViewController {

@@ -1,10 +1,3 @@
-//
-//  Jobs.swift
-//  ITPark Parser
-//
-//  Created by Erkhaan on 11.07.2021.
-//
-
 import Foundation
 
 struct Job{
